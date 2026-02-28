@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovely Tyagi | Web Developer & Mentor</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="main-wrapper d-flex align-items-center justify-content-center p-3 p-md-5">
+
+        <div class="window-card container bg-white shadow-lg position-relative overflow-hidden">
+            
+            <div class="window-header d-flex align-items-center justify-content-between py-4 px-3 px-md-5 mb-2 sticky-top bg-white" style="z-index: 100;">
+                
+                <div class="window-dots d-flex gap-2">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-yellow"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+
+                <nav class="nav d-none d-md-flex gap-4 fw-medium bg-light px-4 py-2 rounded-pill shadow-sm border">
+                    <a class="nav-link active text-dark p-0" href="#">Home</a>
+                    <a class="nav-link text-muted p-0" href="#work">Projects</a>
+                    <a class="nav-link text-muted p-0" href="#mentorship">Mentorship</a>
+                    <a class="nav-link text-muted p-0" href="#services">Services</a>
+                    <a class="nav-link text-muted p-0" href="#contact">Contact</a>
+                </nav>
+
+                <button class="btn btn-sm btn-light border rounded-circle d-md-none shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
+                    <i class="bi bi-list lead"></i>
+                </button>
+            </div>
+
+            <div class="collapse d-md-none px-4 pb-4" id="mobileMenu">
+                <div class="bg-light p-3 rounded-4 border">
+                    <a class="d-block py-2 text-dark text-decoration-none fw-bold" href="#">Home</a>
+                    <a class="d-block py-2 text-muted text-decoration-none" href="#work">Projects</a>
+                    <a class="d-block py-2 text-muted text-decoration-none" href="#mentorship">Mentorship</a>
+                    <a class="d-block py-2 text-muted text-decoration-none" href="#services">Services</a>
+                    <a class="d-block py-2 text-muted text-decoration-none" href="#contact">Contact</a>
+                </div>
+            </div>
+
+            <div class="row align-items-center hero-content px-3 px-md-5 pb-5 pt-3">
+                
+                <div class="col-lg-7 mb-5 mb-lg-0 pe-lg-5 text-center text-lg-start" data-aos="fade-right">
+                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-light text-success fw-bold mb-4 small-badge border">
+                        <span class="badge-dot bg-success rounded-circle"></span>
+                        Available for Freelance
+                    </div>
+                    
+                    <h1 class="display-4 fw-extrabold mb-4 lh-sm">
+                        Web Developer for<br>
+                        <span class="text-primary-gradient">Local Businesses.</span>
+                    </h1>
+                    
+                    <p class="lead text-muted mb-5 fw-normal">
+                        I build fast, mobile-friendly websites for shops, salons, and tuition centers. I turn your visitors into real customers.
+                    </p>
+                    
+                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                        <a href="https://wa.me/919259270578?text=Hi,%20I%20saw%20your%20portfolio%20and%20want%20a%20demo." class="btn btn-dark rounded-pill px-4 py-3 fw-bold d-flex align-items-center gap-2 btn-lg-custom shadow-sm hover-scale">
+                            Book a Free Demo
+                            <i class="bi bi-whatsapp"></i>
+                        </a>
+                        <a href="#work" class="btn btn-outline-light-gray rounded-pill px-4 py-3 fw-bold btn-lg-custom text-dark shadow-sm hover-scale">
+                            See My Work
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5 text-center position-relative" data-aos="fade-left">
+                    <div class="image-decoration-blur"></div>
+                    <img src="myimage.png" alt="Lovely Tyagi" class="img-fluid hero-image rounded-4 shadow">
+                </div>
+            </div>
+
+            <div id="work" class="section-padding px-3 px-md-5 pt-5 mt-4">
+                
+                <div class="row mb-5 align-items-end">
+                    <div class="col-md-8">
+                        <h6 class="text-uppercase text-primary fw-bold small mb-2 tracking-wide">My Portfolio</h6>
+                        <h2 class="fw-bold display-6">Selected Works</h2>
+                    </div>
+                    <div class="col-md-4 text-md-end d-none d-md-block">
+                        <a href="https://github.com/YOUR_GITHUB_ID" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill px-3">
+                            <i class="bi bi-github me-1"></i> View GitHub
+                        </a>
+                    </div>
+                </div>
+
+                <div class="project-card card border-0 shadow-sm mb-5 overflow-hidden rounded-4" data-aos="fade-up">
+                    <div class="row g-0">
+                        <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center p-0 overflow-hidden project-img-container">
+                            <div id="wanderlustCarousel" class="carousel slide carousel-fade w-100 h-100" data-bs-ride="carousel">
+                                <div class="carousel-indicators">
+                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="0" class="active"></button>
+                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="2"></button>
+                                </div>
+                                <div class="carousel-inner h-100">
+                                    <div class="carousel-item active h-100">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Home">
+                                    </div>
+                                    <div class="carousel-item h-100">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Map">
+                                    </div>
+                                    <div class="carousel-item h-100">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Details">
+                                    </div>
+                                </div>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#wanderlustCarousel" data-bs-slide="prev">
+                                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+                                </button>
+                                <button class="carousel-control-next" type="button" data-bs-target="#wanderlustCarousel" data-bs-slide="next">
+                                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                            <div class="mb-3">
+                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2">MERN Stack</span>
+                                <span class="badge bg-light text-dark border rounded-pill px-3 py-2 ms-1">Full Stack</span>
+                            </div>
+                            <h3 class="fw-bold mb-3">Wanderlust Travel App</h3>
+                            <p class="text-muted mb-4">
+                                A full-featured accommodation booking platform.
+                                <ul class="text-muted small mb-4 ps-3">
+                                    <li>Secure user authentication.</li>
+                                    <li><strong>MapTiler</strong> for geolocation.</li>
+                                    <li><strong>Cloudinary</strong> for image storage.</li>
+                                </ul>
+                            </p>
+                            <div class="d-flex gap-3 mb-4 text-secondary fs-4">
+                                <i class="bi bi-filetype-jsx" title="React"></i>
+                                <i class="bi bi-filetype-js" title="Node.js"></i>
+                                <i class="bi bi-database" title="MongoDB"></i>
+                            </div>
+                            <div><a href="#" class="btn btn-dark rounded-pill px-4 btn-sm fw-bold shadow-sm hover-scale">View Code</a></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card card border-0 shadow-sm mb-4 overflow-hidden rounded-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="row g-0 flex-lg-row-reverse">
+                        <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center p-4 project-img-container">
+                            <img src="Screenshot (778).png" alt="Salon Website" class="img-fluid rounded-3 shadow-sm border">
+                        </div>
+                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                            <div class="mb-3">
+                                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-2">Business Website</span>
+                                <span class="badge bg-light text-dark border rounded-pill px-3 py-2 ms-1">Freelance Ready</span>
+                            </div>
+                            <h3 class="fw-bold mb-3">Glow Salon & Spa</h3>
+                            <p class="text-muted mb-4">
+                                A high-conversion landing page designed for local businesses. Features mobile-first design, service menu, and WhatsApp integration.
+                            </p>
+                            <div class="d-flex gap-3 mb-4 text-secondary fs-4">
+                                <i class="bi bi-filetype-html" title="HTML5"></i>
+                                <i class="bi bi-filetype-css" title="CSS3"></i>
+                                <i class="bi bi-phone" title="Responsive"></i>
+                            </div>
+                            <div><a href="salon-demo.html" target="_blank" class="btn btn-dark rounded-pill px-4 btn-sm fw-bold shadow-sm hover-scale">View Live Demo</a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+           
+
+
+            <div id="services" class="section-padding px-3 px-md-5 py-5 bg-light mx-md-4 rounded-4 mb-5 mt-5" data-aos="fade-up">
+                <div class="text-center mb-5">
+                    <h6 class="text-uppercase text-primary fw-bold small mb-2 tracking-wide">What I Offer</h6>
+                    <h2 class="fw-bold display-6">Simple Pricing Packages</h2>
+                </div>
+
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 border transition-hover">
+                            <h4 class="fw-bold mb-3">Starter</h4>
+                            <h2 class="display-5 fw-bold mb-4">₹4,999</h2>
+                            <ul class="list-unstyled text-muted small mb-4">
+                                <li class="mb-2">✅ 3 Page Website</li>
+                                <li class="mb-2">✅ Mobile Responsive</li>
+                                <li class="mb-2">✅ WhatsApp Button</li>
+                            </ul>
+                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Starter%20Package" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Choose Starter</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white p-4 rounded-4 shadow h-100 border border-primary position-relative transition-hover">
+                            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-3 py-2 shadow-sm">MOST POPULAR</div>
+                            <h4 class="fw-bold mb-3 mt-2 text-primary">Business Pro</h4>
+                            <h2 class="display-5 fw-bold mb-4">₹8,999</h2>
+                            <ul class="list-unstyled text-dark small mb-4 fw-medium">
+                                <li class="mb-2">✅ 5-7 Page Website</li>
+                                <li class="mb-2">✅ Google Maps Integration</li>
+                                <li class="mb-2">✅ Photo Gallery</li>
+                                <li class="mb-2">✅ Basic SEO</li>
+                            </ul>
+                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Business%20Pro%20Package" class="btn btn-dark w-100 rounded-pill fw-bold shadow-sm">Choose Pro</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 border transition-hover">
+                            <h4 class="fw-bold mb-3">Maintenance</h4>
+                            <h2 class="display-5 fw-bold mb-4">₹800<span class="fs-6 text-muted">/mo</span></h2>
+                            <ul class="list-unstyled text-muted small mb-4">
+                                <li class="mb-2">✅ Monthly Updates</li>
+                                <li class="mb-2">✅ Hosting Management</li>
+                                <li class="mb-2">✅ Priority Support</li>
+                            </ul>
+                            <a href="https://wa.me/919259270578?text=I%20need%20website%20maintenance" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Subscribe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="contact" class="section-padding px-3 px-md-5 py-5 mb-4" data-aos="zoom-in">
+                <div class="contact-card bg-dark text-white rounded-4 p-4 p-lg-5 position-relative overflow-hidden text-center text-lg-start">
+                    <div class="decoration-blob"></div>
+                    <div class="row align-items-center position-relative z-1">
+                        <div class="col-lg-7 mb-4 mb-lg-0">
+                            <h6 class="text-uppercase fw-bold text-warning mb-3 tracking-wide small">Let's Work Together</h6>
+                            <h2 class="display-5 fw-bold mb-3">Ready to grow your business?</h2>
+                            <p class="lead text-white-50 mb-0">I am currently available for new projects. Send me a message!</p>
+                        </div>
+                        <div class="col-lg-5 text-lg-end">
+                            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-end">
+                                <a href="https://wa.me/919259270578?text=Hi,%20I%20want%20to%20discuss%20a%20project" class="btn btn-success btn-lg rounded-pill fw-bold shadow-lg d-flex align-items-center justify-content-center gap-2 hover-scale">
+                                    <i class="bi bi-whatsapp"></i> WhatsApp Me
+                                </a>
+                                <a href="mailto:lovelytyagi180@gmail.com?subject=Project%20Inquiry&body=Hi,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website." class="btn btn-outline-light btn-lg rounded-pill fw-bold hover-scale">
+                                    <i class="bi bi-envelope me-2"></i> Email Me
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="footer-section pt-5 pb-4 px-3 px-md-5 border-top mt-auto bg-white rounded-bottom-4">
+                <div class="row">
+                    <div class="col-md-5 mb-4 mb-md-0">
+                        <h5 class="fw-bold text-dark">Lovely Tyagi.</h5>
+                        <p class="text-muted small">
+                            Web Developer for local businesses. <br>
+                            Building digital trust, one pixel at a time.
+                        </p>
+                    </div>
+                    <div class="col-6 col-md-3 mb-4 mb-md-0">
+                        <h6 class="fw-bold text-uppercase small text-muted mb-3">Menu</h6>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark fw-bold">Home</a></li>
+                            <li class="mb-2"><a href="#work" class="text-decoration-none text-muted link-hover">Projects</a></li>
+                            <li class="mb-2"><a href="#contact" class="text-decoration-none text-muted link-hover">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-6 col-md-4">
+                        <h6 class="fw-bold text-uppercase small text-muted mb-3">Contact</h6>
+                        <ul class="list-unstyled small">
+                            <li class="mb-2 text-dark"><i class="bi bi-telephone me-2"></i>+91 9259270578</li>
+                            <li class="mb-2 text-muted"><i class="bi bi-envelope me-2"></i>lovelytyagi180@gmail.com</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="text-center mt-4 pt-3 border-top">
+                    <p class="small text-muted mb-0">© 2026 Lovely Tyagi. All rights reserved.</p>
+                </div>
+            </footer>
+
+        </div> </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true
+        });
+    </script>
+</body>
+</html>
