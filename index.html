@@ -1,292 +1,1403 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lovely Tyagi | Web Developer & Mentor</title>
-    
+    <title>Lovely Tyagi | Full-Stack Developer & Web Agency</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --accent: #0A5FFF;
+            --accent-light: #EBF0FF;
+            --dark: #0B0E17;
+            --dark-2: #131722;
+            --muted: #6B7280;
+            --border: #E8EAED;
+            --white: #FFFFFF;
+            --gold: #F5A623;
+            --success-green: #10B981;
+            --card-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: #F4F5F8;
+            color: var(--dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        .syne {
+            font-family: 'Syne', sans-serif;
+        }
+
+        /* ── LAYOUT ── */
+        .main-wrapper {
+            min-height: 100vh;
+            padding: 0;
+        }
+
+        .window-card {
+            max-width: 100%;
+            border-radius: 0;
+            background: var(--white);
+            box-shadow: none;
+            overflow: hidden;
+        }
+
+        /* ── DOTS ── */
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .dot-red {
+            background: #FF5F57;
+        }
+
+        .dot-yellow {
+            background: #FFBD2E;
+        }
+
+        .dot-green {
+            background: #28C840;
+        }
+
+        /* ── HEADER ── */
+        .window-header {
+            border-bottom: 1px solid var(--border);
+        }
+
+        .nav-pill-wrap {
+            background: #F4F5F8;
+            border: 1px solid var(--border);
+            border-radius: 50px;
+            padding: 6px 20px;
+        }
+
+        .nav-pill-wrap .nav-link {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+            font-size: 0.875rem;
+            color: var(--muted);
+            padding: 4px 0;
+            transition: color 0.2s;
+        }
+
+        .nav-pill-wrap .nav-link:hover,
+        .nav-pill-wrap .nav-link.active {
+            color: var(--dark);
+        }
+
+        /* ── HERO ── */
+        .hero-section {
+            padding: 60px 48px 70px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-section {
+                padding: 32px 20px 48px;
+            }
+        }
+
+        .availability-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #EDFDF5;
+            border: 1px solid #A7F3D0;
+            color: #065F46;
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: 50px;
+            margin-bottom: 24px;
+            letter-spacing: 0.01em;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success-green);
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(1.3);
+            }
+        }
+
+        .hero-title {
+            font-size: clamp(2.4rem, 5vw, 3.6rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 20px;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, var(--accent) 0%, #5B8FFF 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-lead {
+            font-size: 1.05rem;
+            color: var(--muted);
+            line-height: 1.7;
+            max-width: 480px;
+            font-weight: 400;
+            margin-bottom: 36px;
+        }
+
+        .btn-primary-custom {
+            background: var(--dark);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: 'Syne', sans-serif;
+            letter-spacing: 0.01em;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary-custom:hover {
+            background: var(--accent);
+            color: var(--white);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(10, 95, 255, 0.25);
+        }
+
+        .btn-outline-custom {
+            background: transparent;
+            color: var(--dark);
+            border: 1.5px solid var(--border);
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            font-family: 'Syne', sans-serif;
+            transition: all 0.2s;
+        }
+
+        .btn-outline-custom:hover {
+            border-color: var(--dark);
+            background: var(--dark);
+            color: var(--white);
+            transform: translateY(-1px);
+        }
+
+        /* ── HERO IMAGE ── */
+        .hero-image-wrap {
+            position: relative;
+        }
+
+        .hero-image-wrap::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            right: -20px;
+            width: 240px;
+            height: 240px;
+            background: radial-gradient(circle, rgba(10, 95, 255, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+            z-index: 0;
+        }
+
+        .hero-image {
+            position: relative;
+            z-index: 1;
+            border-radius: 20px;
+            max-width: 420px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        .floating-stat {
+            position: absolute;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 12px 16px;
+            box-shadow: var(--card-shadow);
+            z-index: 2;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .floating-stat .stat-num {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--accent);
+            display: block;
+            line-height: 1;
+        }
+
+        .floating-stat .stat-label {
+            font-size: 0.7rem;
+            color: var(--muted);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 500;
+        }
+
+        .stat-bottom-left {
+            bottom: 20px;
+            left: -30px;
+        }
+
+        .stat-top-right {
+            top: 20px;
+            right: -20px;
+        }
+
+        /* ── SECTION LABELS ── */
+        .section-label {
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 10px;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        .section-title {
+            font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.15;
+        }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 0 48px;
+        }
+
+        @media (max-width: 768px) {
+            .section-divider {
+                margin: 0 20px;
+            }
+        }
+
+        /* ── PROJECTS ── */
+        .project-section {
+            padding: 60px 48px;
+        }
+
+        @media (max-width: 768px) {
+            .project-section {
+                padding: 48px 20px;
+            }
+        }
+
+        .project-card {
+            border: 1.5px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: box-shadow 0.3s, transform 0.3s;
+            background: var(--white);
+        }
+
+        .project-card:hover {
+            box-shadow: 0 16px 48px rgba(0, 0, 0, 0.1);
+            transform: translateY(-3px);
+        }
+
+        .project-img-container {
+            min-height: 280px;
+            overflow: hidden;
+            background: #F4F5F8;
+        }
+
+        .project-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .project-card:hover .project-img-container img {
+            transform: scale(1.03);
+        }
+
+        .tech-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--accent-light);
+            color: var(--accent);
+            border-radius: 8px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        /* ── SERVICES / PRICING ── */
+        .pricing-section {
+            padding: 60px 48px;
+            background: var(--dark);
+        }
+
+        @media (max-width: 768px) {
+            .pricing-section {
+                padding: 48px 20px;
+            }
+        }
+
+        .pricing-label {
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .pricing-title {
+            color: var(--white);
+        }
+
+        .pricing-card {
+            background: #1A1F2E;
+            border: 1.5px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 32px 28px;
+            height: 100%;
+            position: relative;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .pricing-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.featured {
+            background: var(--accent);
+            border-color: var(--accent);
+        }
+
+        .pricing-card.featured .price-amount,
+        .pricing-card.featured .plan-name,
+        .pricing-card.featured .plan-tagline,
+        .pricing-card.featured .feature-item,
+        .pricing-card.featured .best-for-label {
+            color: var(--white) !important;
+        }
+
+        .pricing-card.featured .feature-item.no {
+            opacity: 0.5;
+        }
+
+        /* ── PREMIUM GOLDEN CARD ── */
+        .pricing-card.premium {
+            background: linear-gradient(145deg, #1A1506 0%, #2A2008 60%, #1A1506 100%);
+            border: 1.5px solid rgba(245, 166, 35, 0.4);
+            box-shadow: 0 0 40px rgba(245, 166, 35, 0.08),
+                inset 0 1px 0 rgba(245, 166, 35, 0.15);
+        }
+
+        .pricing-card.premium:hover {
+            border-color: rgba(245, 166, 35, 0.75);
+            box-shadow: 0 8px 48px rgba(245, 166, 35, 0.18),
+                inset 0 1px 0 rgba(245, 166, 35, 0.2);
+            transform: translateY(-4px);
+        }
+
+        .pricing-card.premium .plan-name {
+            background: linear-gradient(90deg, #F5A623, #FFD97A, #F5A623);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .pricing-card.premium .plan-tagline,
+        .pricing-card.premium .best-for-label {
+            color: rgba(245, 166, 35, 0.55) !important;
+        }
+
+        .pricing-card.premium .price-amount {
+            color: var(--gold) !important;
+        }
+
+        .pricing-card.premium .feature-item {
+            color: rgba(255, 248, 220, 0.85);
+            border-bottom-color: rgba(245, 166, 35, 0.08);
+        }
+
+        .pricing-card.premium .fi-icon.yes {
+            background: rgba(245, 166, 35, 0.15);
+            color: var(--gold);
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--gold);
+            color: #1A1100;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            white-space: nowrap;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .premium-badge {
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(90deg, #B8860B, #F5A623, #FFD700, #F5A623, #B8860B);
+            color: #1A1100;
+            font-size: 0.68rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 5px 16px;
+            border-radius: 50px;
+            white-space: nowrap;
+            font-family: 'Syne', sans-serif;
+            box-shadow: 0 2px 12px rgba(245, 166, 35, 0.4);
+        }
+
+        .plan-name {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .plan-tagline {
+            font-size: 0.78rem;
+            color: rgba(255, 255, 255, 0.45);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .price-amount {
+            font-family: 'Syne', sans-serif;
+            font-size: 2.6rem;
+            font-weight: 800;
+            color: var(--white);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .best-for-label {
+            font-size: 0.75rem;
+            color: rgba(255, 255, 255, 0.4);
+            margin-bottom: 24px;
+            display: block;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 28px 0;
+        }
+
+        .feature-item {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+            padding: 7px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+        }
+
+        .feature-item.no {
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .fi-icon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            flex-shrink: 0;
+        }
+
+        .fi-icon.yes {
+            background: rgba(16, 185, 129, 0.2);
+            color: #10B981;
+        }
+
+        .fi-icon.no-icon {
+            background: rgba(255, 255, 255, 0.08);
+            color: rgba(255, 255, 255, 0.3);
+        }
+
+        .pricing-card.featured .fi-icon.yes {
+            background: rgba(255, 255, 255, 0.25);
+            color: var(--white);
+        }
+
+        .btn-pricing {
+            width: 100%;
+            padding: 13px;
+            border-radius: 50px;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
+            font-size: 0.875rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+
+        .btn-pricing-outline {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .btn-pricing-outline:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .btn-pricing-white {
+            background: var(--white);
+            color: var(--accent);
+        }
+
+        .btn-pricing-white:hover {
+            background: var(--dark);
+            color: var(--white);
+        }
+
+        /* ── GOLD BUTTON ── */
+        .btn-pricing-gold {
+            background: linear-gradient(90deg, #B8860B, #F5A623, #FFD700, #F5A623, #B8860B);
+            background-size: 200% auto;
+            color: #1A1100 !important;
+            font-weight: 800;
+            border: none !important;
+            box-shadow: 0 4px 16px rgba(245, 166, 35, 0.3);
+            transition: background-position 0.4s ease, transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-pricing-gold:hover {
+            background-position: right center;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(245, 166, 35, 0.45);
+            color: #1A1100 !important;
+        }
+
+        /* ── CONTACT ── */
+        .contact-section {
+            padding: 60px 48px;
+        }
+
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 48px 20px;
+            }
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #0B0E17 0%, #131D3A 100%);
+            border-radius: 24px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .contact-card {
+                padding: 36px 24px;
+            }
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(10, 95, 255, 0.2) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .contact-card::after {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: -40px;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(245, 166, 35, 0.12) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .btn-wa {
+            background: #25D366;
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-wa:hover {
+            background: #1EBD59;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .btn-email {
+            background: transparent;
+            color: rgba(255, 255, 255, 0.8);
+            border: 1.5px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 14px 28px;
+            font-weight: 700;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+
+        .btn-email:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* ── FOOTER ── */
+        .footer-section {
+            padding: 40px 48px 28px;
+            border-top: 1px solid var(--border);
+        }
+
+        @media (max-width: 768px) {
+            .footer-section {
+                padding: 32px 20px 24px;
+            }
+        }
+
+        .footer-logo {
+            font-family: 'Syne', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--dark);
+            text-decoration: none;
+        }
+
+        .footer-link {
+            font-size: 0.875rem;
+            color: var(--muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-link:hover {
+            color: var(--dark);
+        }
+
+        /* ── MISC ── */
+        .badge-tag {
+            font-size: 0.72rem;
+            font-weight: 600;
+            padding: 5px 12px;
+            border-radius: 50px;
+            font-family: 'DM Sans', sans-serif;
+            letter-spacing: 0.02em;
+        }
+
+        .badge-mern {
+            background: rgba(10, 95, 255, 0.1);
+            color: var(--accent);
+            border: 1px solid rgba(10, 95, 255, 0.2);
+        }
+
+        .badge-biz {
+            background: rgba(16, 185, 129, 0.1);
+            color: #065F46;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+        }
+
+        .badge-gray {
+            background: #F4F5F8;
+            color: var(--muted);
+            border: 1px solid var(--border);
+        }
+
+        /* Mobile nav */
+        .mobile-menu-btn {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 10px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .mobile-nav-drawer {
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: 16px;
+            padding: 16px;
+            margin: 0 20px 16px;
+        }
+
+        .mobile-nav-link {
+            display: block;
+            padding: 10px 12px;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--dark);
+            text-decoration: none;
+            border-radius: 8px;
+            transition: background 0.2s;
+        }
+
+        .mobile-nav-link:hover {
+            background: var(--accent-light);
+            color: var(--accent);
+        }
+
+        /* Process strip */
+        .process-strip {
+            padding: 36px 48px;
+            background: #F4F5F8;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        @media (max-width: 768px) {
+            .process-strip {
+                padding: 28px 20px;
+                gap: 16px;
+            }
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            flex: 1;
+            min-width: 160px;
+        }
+
+        .step-num {
+            width: 40px;
+            height: 40px;
+            background: var(--dark);
+            color: var(--white);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Syne', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .step-text {
+            font-size: 0.82rem;
+            color: var(--muted);
+            line-height: 1.4;
+        }
+
+        .step-text strong {
+            color: var(--dark);
+            font-weight: 600;
+            display: block;
+            font-family: 'Syne', sans-serif;
+        }
+
+        .step-arrow {
+            color: var(--border);
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 576px) {
+            .step-arrow {
+                display: none;
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-    <main class="main-wrapper d-flex align-items-center justify-content-center p-3 p-md-5">
+    <main class="main-wrapper d-flex align-items-center justify-content-center">
+        <div class="window-card w-100">
 
-        <div class="window-card container bg-white shadow-lg position-relative overflow-hidden">
-            
-            <div class="window-header d-flex align-items-center justify-content-between py-4 px-3 px-md-5 mb-2 sticky-top bg-white" style="z-index: 100;">
-                
-                <div class="window-dots d-flex gap-2">
+            <!-- ── HEADER ── -->
+            <div class="window-header d-flex align-items-center justify-content-between py-3 px-4 px-md-5 sticky-top bg-white"
+                style="z-index:100">
+                <div class="d-flex gap-2 align-items-center">
                     <span class="dot dot-red"></span>
                     <span class="dot dot-yellow"></span>
                     <span class="dot dot-green"></span>
                 </div>
 
-                <nav class="nav d-none d-md-flex gap-4 fw-medium bg-light px-4 py-2 rounded-pill shadow-sm border">
-                    <a class="nav-link active text-dark p-0" href="#">Home</a>
-                    <a class="nav-link text-muted p-0" href="#work">Projects</a>
-                    <a class="nav-link text-muted p-0" href="#mentorship">Mentorship</a>
-                    <a class="nav-link text-muted p-0" href="#services">Services</a>
-                    <a class="nav-link text-muted p-0" href="#contact">Contact</a>
+                <nav class="nav-pill-wrap d-none d-md-flex gap-4">
+                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link" href="#work">Projects</a>
+                    <a class="nav-link" href="#services">Pricing</a>
+                    <a class="nav-link" href="#contact">Contact</a>
                 </nav>
 
-                <button class="btn btn-sm btn-light border rounded-circle d-md-none shadow-sm" type="button" data-bs-toggle="collapse" data-bs-target="#mobileMenu">
-                    <i class="bi bi-list lead"></i>
+                <a href="https://wa.me/919259270578?text=Hi,%20I%20saw%20your%20portfolio"
+                    class="btn-primary-custom d-none d-md-inline-flex" style="padding:10px 20px;font-size:0.82rem">
+                    Let's Build Something <i class="bi bi-arrow-up-right"></i>
+                </a>
+
+                <button class="mobile-menu-btn d-md-none border-0" data-bs-toggle="collapse"
+                    data-bs-target="#mobileMenu">
+                    <i class="bi bi-list" style="font-size:1.2rem"></i>
                 </button>
             </div>
 
-            <div class="collapse d-md-none px-4 pb-4" id="mobileMenu">
-                <div class="bg-light p-3 rounded-4 border">
-                    <a class="d-block py-2 text-dark text-decoration-none fw-bold" href="#">Home</a>
-                    <a class="d-block py-2 text-muted text-decoration-none" href="#work">Projects</a>
-                    <a class="d-block py-2 text-muted text-decoration-none" href="#mentorship">Mentorship</a>
-                    <a class="d-block py-2 text-muted text-decoration-none" href="#services">Services</a>
-                    <a class="d-block py-2 text-muted text-decoration-none" href="#contact">Contact</a>
+            <!-- Mobile menu -->
+            <div class="collapse d-md-none" id="mobileMenu">
+                <div class="mobile-nav-drawer">
+                    <a class="mobile-nav-link" href="#">Home</a>
+                    <a class="mobile-nav-link" href="#work">Projects</a>
+                    <a class="mobile-nav-link" href="#services">Pricing</a>
+                    <a class="mobile-nav-link" href="#contact">Contact</a>
                 </div>
             </div>
 
-            <div class="row align-items-center hero-content px-3 px-md-5 pb-5 pt-3">
-                
-                <div class="col-lg-7 mb-5 mb-lg-0 pe-lg-5 text-center text-lg-start" data-aos="fade-right">
-                    <div class="d-inline-flex align-items-center gap-2 px-3 py-2 rounded-pill bg-light text-success fw-bold mb-4 small-badge border">
-                        <span class="badge-dot bg-success rounded-circle"></span>
-                        Available for Freelance
+            <!-- ── HERO ── -->
+            <section class="hero-section">
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6 text-center text-lg-start" data-aos="fade-right">
+                        <div class="availability-badge">
+                            <span class="pulse-dot"></span>
+                            Available for New Projects
+                        </div>
+
+                        <h1 class="hero-title">
+                            Full-Stack Developer.<br>
+                            <span class="highlight">Your Business,</span><br>
+                            <span class="highlight">Built Right.</span>
+                        </h1>
+
+                        <p class="hero-lead">
+                            I build high-performance websites for clinics, local businesses, and growing brands — from
+                            custom MERN apps to high-conversion landing pages.
+                        </p>
+
+                        <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+                            <a href="https://wa.me/919259270578?text=Hi,%20I%20saw%20your%20portfolio%20and%20want%20a%20demo."
+                                class="btn-primary-custom">
+                                Book a Free Demo <i class="bi bi-whatsapp"></i>
+                            </a>
+                            <a href="#work" class="btn-outline-custom">
+                                See My Work
+                            </a>
+                        </div>
                     </div>
-                    
-                    <h1 class="display-4 fw-extrabold mb-4 lh-sm">
-                        Web Developer for<br>
-                        <span class="text-primary-gradient">Local Businesses.</span>
-                    </h1>
-                    
-                    <p class="lead text-muted mb-5 fw-normal">
-                        I build fast, mobile-friendly websites for shops, salons, and tuition centers. I turn your visitors into real customers.
-                    </p>
-                    
-                    <div class="d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
-                        <a href="https://wa.me/919259270578?text=Hi,%20I%20saw%20your%20portfolio%20and%20want%20a%20demo." class="btn btn-dark rounded-pill px-4 py-3 fw-bold d-flex align-items-center gap-2 btn-lg-custom shadow-sm hover-scale">
-                            Book a Free Demo
-                            <i class="bi bi-whatsapp"></i>
-                        </a>
-                        <a href="#work" class="btn btn-outline-light-gray rounded-pill px-4 py-3 fw-bold btn-lg-custom text-dark shadow-sm hover-scale">
-                            See My Work
-                        </a>
+
+                    <div class="col-lg-6 text-center position-relative" data-aos="fade-left">
+                        <div class="hero-image-wrap d-inline-block position-relative">
+                            <img src="myimage.png" alt="Lovely Tyagi" class="hero-image shadow">
+
+
+
+                            <div class="floating-stat stat-top-right">
+                                <span class="stat-num">100%</span>
+                                <span class="stat-label">Client Satisfaction</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
+            </section>
 
-                <div class="col-lg-5 text-center position-relative" data-aos="fade-left">
-                    <div class="image-decoration-blur"></div>
-                    <img src="myimage.png" alt="Lovely Tyagi" class="img-fluid hero-image rounded-4 shadow">
+            <!-- ── PROCESS STRIP ── -->
+            <div class="process-strip">
+                <div class="process-step">
+                    <div class="step-num">01</div>
+                    <div class="step-text"><strong>Discovery Call</strong>Understand your goals</div>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="process-step">
+                    <div class="step-num">02</div>
+                    <div class="step-text"><strong>Design & Build</strong>Fast 7–14 day delivery</div>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="process-step">
+                    <div class="step-num">03</div>
+                    <div class="step-text"><strong>Review & Launch</strong>You approve, we go live</div>
+                </div>
+                <span class="step-arrow">→</span>
+                <div class="process-step">
+                    <div class="step-num">04</div>
+                    <div class="step-text"><strong>Support</strong>Post-launch care included</div>
                 </div>
             </div>
 
-            <div id="work" class="section-padding px-3 px-md-5 pt-5 mt-4">
-                
+            <hr class="section-divider">
+
+            <!-- ── PROJECTS ── -->
+            <section id="work" class="project-section">
                 <div class="row mb-5 align-items-end">
                     <div class="col-md-8">
-                        <h6 class="text-uppercase text-primary fw-bold small mb-2 tracking-wide">My Portfolio</h6>
-                        <h2 class="fw-bold display-6">Selected Works</h2>
+                        <p class="section-label">My Portfolio</p>
+                        <h2 class="section-title">Selected Works</h2>
                     </div>
                     <div class="col-md-4 text-md-end d-none d-md-block">
-                        <a href="https://github.com/YOUR_GITHUB_ID" target="_blank" class="btn btn-sm btn-outline-dark rounded-pill px-3">
-                            <i class="bi bi-github me-1"></i> View GitHub
+                        <a href="https://github.com/YOUR_GITHUB_ID" target="_blank" class="btn-outline-custom"
+                            style="padding:10px 20px;font-size:0.82rem">
+                            <i class="bi bi-github me-1"></i> GitHub
                         </a>
                     </div>
                 </div>
 
-                <div class="project-card card border-0 shadow-sm mb-5 overflow-hidden rounded-4" data-aos="fade-up">
+                <!-- Project 1 -->
+                <div class="project-card mb-4" data-aos="fade-up">
                     <div class="row g-0">
-                        <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center p-0 overflow-hidden project-img-container">
-                            <div id="wanderlustCarousel" class="carousel slide carousel-fade w-100 h-100" data-bs-ride="carousel">
+                        <div class="col-lg-5 project-img-container">
+                            <div id="wanderlustCarousel" class="carousel slide carousel-fade w-100 h-100"
+                                data-bs-ride="carousel">
                                 <div class="carousel-indicators">
-                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="0" class="active"></button>
-                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="1"></button>
-                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="2"></button>
+                                    <button type="button" data-bs-target="#wanderlustCarousel" data-bs-slide-to="0"
+                                        class="active"></button>
+                                    <button type="button" data-bs-target="#wanderlustCarousel"
+                                        data-bs-slide-to="1"></button>
+                                    <button type="button" data-bs-target="#wanderlustCarousel"
+                                        data-bs-slide-to="2"></button>
                                 </div>
                                 <div class="carousel-inner h-100">
                                     <div class="carousel-item active h-100">
-                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Home">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100"
+                                            style="object-fit:cover" alt="Wanderlust Home">
                                     </div>
                                     <div class="carousel-item h-100">
-                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Map">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100"
+                                            style="object-fit:cover" alt="Wanderlust Map">
                                     </div>
                                     <div class="carousel-item h-100">
-                                        <img src="Screenshot (775).png" class="d-block w-100 h-100 object-fit-cover" alt="Details">
+                                        <img src="Screenshot (775).png" class="d-block w-100 h-100"
+                                            style="object-fit:cover" alt="Wanderlust Details">
                                     </div>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#wanderlustCarousel" data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+                                <button class="carousel-control-prev" type="button" data-bs-target="#wanderlustCarousel"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon bg-dark rounded-circle p-3 bg-opacity-50"></span>
                                 </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#wanderlustCarousel" data-bs-slide="next">
-                                    <span class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-50" aria-hidden="true"></span>
+                                <button class="carousel-control-next" type="button" data-bs-target="#wanderlustCarousel"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon bg-dark rounded-circle p-3 bg-opacity-50"></span>
                                 </button>
                             </div>
                         </div>
 
-                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
-                            <div class="mb-3">
-                                <span class="badge bg-primary-subtle text-primary border border-primary-subtle rounded-pill px-3 py-2">MERN Stack</span>
-                                <span class="badge bg-light text-dark border rounded-pill px-3 py-2 ms-1">Full Stack</span>
+                        <div class="col-lg-7 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                            <div class="d-flex gap-2 mb-3 flex-wrap">
+                                <span class="badge-tag badge-mern">MERN Stack</span>
+                                <span class="badge-tag badge-gray">Full Stack</span>
                             </div>
-                            <h3 class="fw-bold mb-3">Wanderlust Travel App</h3>
-                            <p class="text-muted mb-4">
-                                A full-featured accommodation booking platform.
-                                <ul class="text-muted small mb-4 ps-3">
-                                    <li>Secure user authentication.</li>
-                                    <li><strong>MapTiler</strong> for geolocation.</li>
-                                    <li><strong>Cloudinary</strong> for image storage.</li>
-                                </ul>
+                            <h3 class="section-title mb-3" style="font-size:1.6rem">Wanderlust Travel App</h3>
+                            <p class="text-muted mb-3" style="font-size:0.9rem;line-height:1.7">
+                                A full-featured accommodation booking platform with secure authentication, real-time
+                                geolocation via MapTiler, and scalable image management through Cloudinary.
                             </p>
-                            <div class="d-flex gap-3 mb-4 text-secondary fs-4">
-                                <i class="bi bi-filetype-jsx" title="React"></i>
-                                <i class="bi bi-filetype-js" title="Node.js"></i>
-                                <i class="bi bi-database" title="MongoDB"></i>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <div class="tech-icon" title="React">R</div>
+                                <div class="tech-icon" title="Node.js">N</div>
+                                <div class="tech-icon" title="MongoDB">M</div>
+                                <div class="tech-icon" title="Express">E</div>
                             </div>
-                            <div><a href="#" class="btn btn-dark rounded-pill px-4 btn-sm fw-bold shadow-sm hover-scale">View Code</a></div>
+                            <div>
+                                <a href="#" class="btn-primary-custom" style="padding:11px 24px;font-size:0.85rem">
+                                    View Code <i class="bi bi-github"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="project-card card border-0 shadow-sm mb-4 overflow-hidden rounded-4" data-aos="fade-up" data-aos-delay="100">
+                <!-- Project 2 -->
+                <div class="project-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="row g-0 flex-lg-row-reverse">
-                        <div class="col-lg-6 bg-light d-flex align-items-center justify-content-center p-4 project-img-container">
-                            <img src="Screenshot (778).png" alt="Salon Website" class="img-fluid rounded-3 shadow-sm border">
+                        <div class="col-lg-5 project-img-container">
+                            <img src="Screenshot (778).png" alt="Salon Website" class="w-100 h-100"
+                                style="object-fit:cover">
                         </div>
-                        <div class="col-lg-6 p-4 p-lg-5 d-flex flex-column justify-content-center">
-                            <div class="mb-3">
-                                <span class="badge bg-success-subtle text-success border border-success-subtle rounded-pill px-3 py-2">Business Website</span>
-                                <span class="badge bg-light text-dark border rounded-pill px-3 py-2 ms-1">Freelance Ready</span>
+                        <div class="col-lg-7 p-4 p-lg-5 d-flex flex-column justify-content-center">
+                            <div class="d-flex gap-2 mb-3 flex-wrap">
+                                <span class="badge-tag badge-biz">Business Website</span>
+                                <span class="badge-tag badge-gray">Freelance Ready</span>
                             </div>
-                            <h3 class="fw-bold mb-3">Glow Salon & Spa</h3>
-                            <p class="text-muted mb-4">
-                                A high-conversion landing page designed for local businesses. Features mobile-first design, service menu, and WhatsApp integration.
+                            <h3 class="section-title mb-3" style="font-size:1.6rem">Glow Salon & Spa</h3>
+                            <p class="text-muted mb-3" style="font-size:0.9rem;line-height:1.7">
+                                A high-conversion landing page for local businesses. Mobile-first design, WhatsApp CTA
+                                integration, and a clear service menu that drives real bookings.
                             </p>
-                            <div class="d-flex gap-3 mb-4 text-secondary fs-4">
-                                <i class="bi bi-filetype-html" title="HTML5"></i>
-                                <i class="bi bi-filetype-css" title="CSS3"></i>
-                                <i class="bi bi-phone" title="Responsive"></i>
+                            <div class="d-flex flex-wrap gap-2 mb-4">
+                                <div class="tech-icon" title="HTML5">H</div>
+                                <div class="tech-icon" title="CSS3">C</div>
+                                <div class="tech-icon" title="Responsive">📱</div>
                             </div>
-                            <div><a href="salon-demo.html" target="_blank" class="btn btn-dark rounded-pill px-4 btn-sm fw-bold shadow-sm hover-scale">View Live Demo</a></div>
+                            <div>
+                                <a href="salon-demo.html" target="_blank" class="btn-primary-custom"
+                                    style="padding:11px 24px;font-size:0.85rem">
+                                    Live Demo <i class="bi bi-box-arrow-up-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-           
-
-
-            <div id="services" class="section-padding px-3 px-md-5 py-5 bg-light mx-md-4 rounded-4 mb-5 mt-5" data-aos="fade-up">
+            <!-- ── PRICING ── -->
+            <section id="services" class="pricing-section">
                 <div class="text-center mb-5">
-                    <h6 class="text-uppercase text-primary fw-bold small mb-2 tracking-wide">What I Offer</h6>
-                    <h2 class="fw-bold display-6">Simple Pricing Packages</h2>
+                    <p class="section-label pricing-label">What I Offer</p>
+                    <h2 class="section-title pricing-title">Transparent Pricing</h2>
+                    <p style="color:rgba(255,255,255,0.45);font-size:0.9rem;margin-top:10px">No surprises. Choose the
+                        package that fits your goals.</p>
                 </div>
 
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 border transition-hover">
-                            <h4 class="fw-bold mb-3">Starter</h4>
-                            <h2 class="display-5 fw-bold mb-4">₹4,999</h2>
-                            <ul class="list-unstyled text-muted small mb-4">
-                                <li class="mb-2">✅ 3 Page Website</li>
-                                <li class="mb-2">✅ Mobile Responsive</li>
-                                <li class="mb-2">✅ WhatsApp Button</li>
+                <div class="row g-4 align-items-start justify-content-center">
+
+                    <!-- Starter -->
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="0">
+                        <div class="pricing-card">
+                            <p class="plan-name">Starter</p>
+                            <span class="plan-tagline">Basic Website</span>
+                            <div class="price-amount">₹8,000</div>
+                            <span class="best-for-label">Best for first 1–2 clients</span>
+
+                            <ul class="feature-list">
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    5–7 pages
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Mobile responsive
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Contact form
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Basic on-page SEO
+                                </li>
+                                <li class="feature-item no">
+                                    <span class="fi-icon no-icon"><i class="bi bi-x"></i></span>
+                                    Blog setup
+                                </li>
+                                <li class="feature-item no">
+                                    <span class="fi-icon no-icon"><i class="bi bi-x"></i></span>
+                                    Content writing
+                                </li>
                             </ul>
-                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Starter%20Package" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Choose Starter</a>
+
+                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Starter%20Package"
+                                class="btn-pricing btn-pricing-outline">
+                                Get Started
+                            </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="bg-white p-4 rounded-4 shadow h-100 border border-primary position-relative transition-hover">
-                            <div class="position-absolute top-0 start-50 translate-middle badge bg-primary rounded-pill px-3 py-2 shadow-sm">MOST POPULAR</div>
-                            <h4 class="fw-bold mb-3 mt-2 text-primary">Business Pro</h4>
-                            <h2 class="display-5 fw-bold mb-4">₹8,999</h2>
-                            <ul class="list-unstyled text-dark small mb-4 fw-medium">
-                                <li class="mb-2">✅ 5-7 Page Website</li>
-                                <li class="mb-2">✅ Google Maps Integration</li>
-                                <li class="mb-2">✅ Photo Gallery</li>
-                                <li class="mb-2">✅ Basic SEO</li>
+
+                    <!-- Professional (featured) -->
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pricing-card featured">
+                            <div class="featured-badge">⭐ Recommended</div>
+
+                            <p class="plan-name">Professional</p>
+                            <span class="plan-tagline">For Doctors & Clinics</span>
+                            <div class="price-amount">₹18,000</div>
+                            <span class="best-for-label">Sweet spot for growing practices</span>
+
+                            <ul class="feature-list">
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    12–15 pages
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Mobile responsive
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    SEO-optimised content
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Blog section (5 posts)
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Appointment form
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Google Maps integration
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    WhatsApp button
+                                </li>
                             </ul>
-                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Business%20Pro%20Package" class="btn btn-dark w-100 rounded-pill fw-bold shadow-sm">Choose Pro</a>
+
+                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Professional%20Package"
+                                class="btn-pricing btn-pricing-white">
+                                Choose Professional
+                            </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="bg-white p-4 rounded-4 shadow-sm h-100 border transition-hover">
-                            <h4 class="fw-bold mb-3">Maintenance</h4>
-                            <h2 class="display-5 fw-bold mb-4">₹800<span class="fs-6 text-muted">/mo</span></h2>
-                            <ul class="list-unstyled text-muted small mb-4">
-                                <li class="mb-2">✅ Monthly Updates</li>
-                                <li class="mb-2">✅ Hosting Management</li>
-                                <li class="mb-2">✅ Priority Support</li>
+
+                    <!-- Premium -->
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pricing-card premium">
+                            <div class="premium-badge">👑 Best for Clinics</div>
+
+                            <p class="plan-name">Premium</p>
+                            <span class="plan-tagline">Complete Package</span>
+                            <div class="price-amount">₹30,000</div>
+                            <span class="best-for-label">For serious clinics & agencies</span>
+
+                            <ul class="feature-list">
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    15–20 pages
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Full SEO setup
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    10 blog posts written
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Google Business setup
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Speed optimised
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    3 months free technical support
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Social media pages setup
+                                </li>
                             </ul>
-                            <a href="https://wa.me/919259270578?text=I%20need%20website%20maintenance" class="btn btn-outline-dark w-100 rounded-pill fw-bold">Subscribe</a>
+
+                            <a href="https://wa.me/919259270578?text=I%20am%20interested%20in%20the%20Premium%20Package"
+                                class="btn-pricing btn-pricing-gold">
+                                Go Premium 👑
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Maintenance -->
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="300">
+                        <div class="pricing-card">
+                            <p class="plan-name">Maintenance</p>
+                            <span class="plan-tagline">Post-Launch Care</span>
+                            <div class="price-amount">₹800<span
+                                    style="font-size:1rem;font-weight:500;color:rgba(255,255,255,0.4)">/mo</span></div>
+                            <span class="best-for-label">After your 3 months free support</span>
+
+                            <ul class="feature-list">
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Monthly content updates
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Bug fixes & tweaks
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Hosting management
+                                </li>
+                                <li class="feature-item">
+                                    <span class="fi-icon yes"><i class="bi bi-check"></i></span>
+                                    Priority WhatsApp support
+                                </li>
+                            </ul>
+
+                            <a href="https://wa.me/919259270578?text=I%20need%20website%20maintenance"
+                                class="btn-pricing btn-pricing-outline">
+                                Subscribe
+                            </a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="contact" class="section-padding px-3 px-md-5 py-5 mb-4" data-aos="zoom-in">
-                <div class="contact-card bg-dark text-white rounded-4 p-4 p-lg-5 position-relative overflow-hidden text-center text-lg-start">
-                    <div class="decoration-blob"></div>
-                    <div class="row align-items-center position-relative z-1">
+            <!-- ── CONTACT ── -->
+            <section id="contact" class="contact-section">
+                <div class="contact-card" data-aos="zoom-in">
+                    <div class="row align-items-center position-relative" style="z-index:1">
                         <div class="col-lg-7 mb-4 mb-lg-0">
-                            <h6 class="text-uppercase fw-bold text-warning mb-3 tracking-wide small">Let's Work Together</h6>
-                            <h2 class="display-5 fw-bold mb-3">Ready to grow your business?</h2>
-                            <p class="lead text-white-50 mb-0">I am currently available for new projects. Send me a message!</p>
+                            <span
+                                style="font-size:0.72rem;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-family:'DM Sans',sans-serif">
+                                Let's Work Together
+                            </span>
+                            <h2 class="section-title mt-2 mb-3"
+                                style="color:white;font-size:clamp(1.8rem,3.5vw,2.8rem)">
+                                Ready to grow your<br>business online?
+                            </h2>
+                            <p style="color:rgba(255,255,255,0.5);font-size:0.95rem;max-width:440px">
+                                I'm currently available for new projects. Let's talk about your website today — no
+                                commitment needed.
+                            </p>
                         </div>
-                        <div class="col-lg-5 text-lg-end">
-                            <div class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-end">
-                                <a href="https://wa.me/919259270578?text=Hi,%20I%20want%20to%20discuss%20a%20project" class="btn btn-success btn-lg rounded-pill fw-bold shadow-lg d-flex align-items-center justify-content-center gap-2 hover-scale">
+                        <div class="col-lg-5">
+                            <div
+                                class="d-flex flex-column flex-sm-row gap-3 justify-content-center justify-content-lg-end">
+                                <a href="https://wa.me/919259270578?text=Hi,%20I%20want%20to%20discuss%20a%20project"
+                                    class="btn-wa">
                                     <i class="bi bi-whatsapp"></i> WhatsApp Me
                                 </a>
-                                <a href="mailto:lovelytyagi180@gmail.com?subject=Project%20Inquiry&body=Hi,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website." class="btn btn-outline-light btn-lg rounded-pill fw-bold hover-scale">
-                                    <i class="bi bi-envelope me-2"></i> Email Me
+                                <a href="mailto:lovelyofficial285@gmail.com?subject=Project%20Inquiry&body=Hi,%20I%20saw%20your%20portfolio%20and%20want%20to%20discuss%20a%20website."
+                                    class="btn-email">
+                                    <i class="bi bi-envelope"></i> Email Me
                                 </a>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <footer class="footer-section pt-5 pb-4 px-3 px-md-5 border-top mt-auto bg-white rounded-bottom-4">
+            <!-- ── FOOTER ── -->
+            <footer class="footer-section">
                 <div class="row">
                     <div class="col-md-5 mb-4 mb-md-0">
-                        <h5 class="fw-bold text-dark">Lovely Tyagi.</h5>
-                        <p class="text-muted small">
-                            Web Developer for local businesses. <br>
+                        <a href="#" class="footer-logo d-block mb-2">Lovely Tyagi.</a>
+                        <p style="font-size:0.85rem;color:var(--muted);line-height:1.6;max-width:280px">
+                            Full-Stack Developer & Web Agency Owner.<br>
                             Building digital trust, one pixel at a time.
                         </p>
                     </div>
                     <div class="col-6 col-md-3 mb-4 mb-md-0">
-                        <h6 class="fw-bold text-uppercase small text-muted mb-3">Menu</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2"><a href="#" class="text-decoration-none text-dark fw-bold">Home</a></li>
-                            <li class="mb-2"><a href="#work" class="text-decoration-none text-muted link-hover">Projects</a></li>
-                            <li class="mb-2"><a href="#contact" class="text-decoration-none text-muted link-hover">Contact</a></li>
-                        </ul>
+                        <p
+                            style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">
+                            Menu</p>
+                        <div class="d-flex flex-column gap-2">
+                            <a href="#" class="footer-link fw-bold" style="color:var(--dark)">Home</a>
+                            <a href="#work" class="footer-link">Projects</a>
+                            <a href="#services" class="footer-link">Pricing</a>
+                            <a href="#contact" class="footer-link">Contact</a>
+                        </div>
                     </div>
                     <div class="col-6 col-md-4">
-                        <h6 class="fw-bold text-uppercase small text-muted mb-3">Contact</h6>
-                        <ul class="list-unstyled small">
-                            <li class="mb-2 text-dark"><i class="bi bi-telephone me-2"></i>+91 9259270578</li>
-                            <li class="mb-2 text-muted"><i class="bi bi-envelope me-2"></i>lovelytyagi180@gmail.com</li>
-                        </ul>
+                        <p
+                            style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px">
+                            Contact</p>
+                        <div class="d-flex flex-column gap-2">
+                            <span style="font-size:0.85rem;color:var(--dark)"><i
+                                    class="bi bi-telephone me-2 text-muted"></i>+91 9259270578</span>
+                            <span style="font-size:0.85rem;color:var(--muted)"><i class="bi bi-envelope me-2"></i><a
+                                    href="/cdn-cgi/l/email-protection" class="__cf_email__"
+                                    data-cfemail="721e1d04171e0b060b13151b434a4232151f131b1e5c111d1f">[email&#160;protected]</a></span>
+                        </div>
                     </div>
                 </div>
                 <div class="text-center mt-4 pt-3 border-top">
-                    <p class="small text-muted mb-0">© 2026 Lovely Tyagi. All rights reserved.</p>
+                    <p style="font-size:0.8rem;color:var(--muted);margin:0">© 2026 Lovely Tyagi. All rights reserved.
+                    </p>
                 </div>
             </footer>
 
-        </div> </main>
+        </div>
+    </main>
 
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true
+        AOS.init({ duration: 700, once: true, offset: 60 });
+
+        // Smooth scroll for nav links
+        document.querySelectorAll('a[href^="#"]').forEach(a => {
+            a.addEventListener('click', e => {
+                const target = document.querySelector(a.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    // close mobile menu if open
+                    const menu = document.getElementById('mobileMenu');
+                    if (menu && menu.classList.contains('show')) {
+                        bootstrap.Collapse.getInstance(menu)?.hide();
+                    }
+                }
+            });
         });
     </script>
-</body>
-</html>
